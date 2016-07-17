@@ -124,7 +124,7 @@ fi
 # SDL_LIBS="`echo $SDL_LIBS | sed 's_-L/usr/lib/\?[[ $]]__'`"
 
 have_libpng=yes
-AC_CHECK_LIB(png, png_create_read_struct, [x=y], have_libpng=no, [-lz -lm]) # x=y to stop autoconf from messing with LIBS
+AC_CHECK_LIB(png, png_create_read_struct, have_libpng=yes, have_libpng=no, [-lz -lm]) # x=y to stop autoconf from messing with LIBS
 AC_CHECK_HEADER(png.h, , have_libpng=no)
 if test "$have_libpng" = "no"; then
   echo
@@ -138,7 +138,7 @@ AC_ARG_WITH(jpeg, AC_HELP_STRING([--without-jpeg], [Disable JPEG support]), with
 
 if test "$with_jpeg" = "yes"; then
 	have_libjpeg=yes
-	AC_CHECK_LIB(jpeg, jpeg_read_scanlines, [x=y], have_libjpeg=no) # x=y to stop autoconf from messing with LIBS
+	AC_CHECK_LIB(jpeg, jpeg_read_scanlines, have_libpng=yes, have_libjpeg=no) # x=y to stop autoconf from messing with LIBS
 	AC_CHECK_HEADER(jpeglib.h, , have_libjpeg=no)
 
 	if test "$have_libjpeg" = "no"; then
