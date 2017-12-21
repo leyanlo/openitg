@@ -3,7 +3,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenITG", "StepMania-net200
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cryptlib_vs2003", "crypto561\cryptlib_vs2003\cryptlib_vs2003.vcproj", "{4A4648C3-62D0-4119-AD11-CDA853019F94}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cryptlib_vs2003", "{4A4648C3-62D0-4119-AD11-CDA853019F94}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
