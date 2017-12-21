@@ -2310,14 +2310,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\arch\Lights\LightsDriver_Dynamic.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\arch\Lights\LightsDriver_Dynamic.h"
-						>
-					</File>
-					<File
 						RelativePath="arch\Lights\LightsDriver_External.cpp"
 						>
 					</File>

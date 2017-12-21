@@ -1706,12 +1706,6 @@ cl /Zl /nologo /c verstub.cpp /Fo&quot;$(IntDir)&quot;\
 						RelativePath="arch\Lights\LightsDriver.h">
 					</File>
 					<File
-						RelativePath=".\arch\Lights\LightsDriver_Dynamic.cpp">
-					</File>
-					<File
-						RelativePath=".\arch\Lights\LightsDriver_Dynamic.h">
-					</File>
-					<File
 						RelativePath="arch\Lights\LightsDriver_External.cpp">
 					</File>
 					<File

@@ -59,7 +59,7 @@ extern "C"
 struct AVPixelFormat_t
 {
 	int bpp;
-	int masks[4];
+	unsigned int masks[4];
 	avcodec::PixelFormat pf;
 	bool HighColor;
 	bool ByteSwapOnLittleEndian;

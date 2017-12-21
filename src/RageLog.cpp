@@ -351,7 +351,7 @@ void RageLog::AddToRecentLogs( const CString &str )
 const char *RageLog::GetRecentLog( int n )
 {
 	if( n >= BACKLOG_LINES || n >= backlog_cnt )
-		return false;
+		return '\0';
 
 	if( backlog_cnt == BACKLOG_LINES )
 	{
