@@ -4,7 +4,8 @@
 # working Makefile.
 
 CC = @CC@
-CFLAGS = @CFLAGS@ -Wall
+CFLAGS += @CFLAGS@ 
+LDFLAGS += @LDFLAGS@
 
 LIBS = @LIBS@ -lm
 
@@ -26,19 +27,19 @@ libresample.a: $(OBJS) Makefile
 	$(AR) ruv libresample.a $(OBJS)
 	ranlib libresample.a
 
-tests/testresample: libresample.a $(srcdir)/tests/testresample.c $(DIRS)
+tests/testresample: libresample.a $(srcdir)/tests/testresample.c
 	$(CC) -o tests/testresample \
-		$(CFLAGS) $(srcdir)/tests/testresample.c \
+		$(CFLAGS) $(LDFLAGS)  $(srcdir)/tests/testresample.c \
 		libresample.a $(LIBS)
 
-tests/compareresample: libresample.a $(srcdir)/tests/compareresample.c $(DIRS)
+tests/compareresample: libresample.a $(srcdir)/tests/compareresample.c 
 	$(CC) -o tests/compareresample \
-		$(CFLAGS) $(srcdir)/tests/compareresample.c \
+		$(CFLAGS) $(LDFLAGS) $(srcdir)/tests/compareresample.c \
 		libresample.a -lsamplerate $(LIBS)
 
-tests/resample-sndfile: libresample.a $(srcdir)/tests/resample-sndfile.c $(DIRS)
+tests/resample-sndfile: libresample.a $(srcdir)/tests/resample-sndfile.c
 	$(CC) -o tests/resample-sndfile \
-		$(CFLAGS) $(srcdir)/tests/resample-sndfile.c \
+		$(CFLAGS) $(LDFLAGS) $(srcdir)/tests/resample-sndfile.c \
 		libresample.a -lsndfile $(LIBS)
 
 $(DIRS):
@@ -47,7 +48,7 @@ $(DIRS):
 clean:
 	rm -f $(TARGETS) $(OBJS)
 
-dist: clean
+distclean: clean
 	rm -f Makefile
 	rm -f config.status config.cache config.log src/config.h
 	rm -f *~ src/*~ tests/*~ include/*~
