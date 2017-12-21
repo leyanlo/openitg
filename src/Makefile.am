@@ -25,7 +25,7 @@ endif
 
 all: build_version
 
-build_version: $(srcdir)/libresample/libresample.a $(srcdir)/crypto561/libcryptopp.a
+build_version: $(srcdir)/libresample/libresample.a $(srcdir)/crypto565/libcryptopp.a
 	$(CC) -O2 archutils/Unix/verinc.c -o archutils/Unix/verinc
 	chmod +x archutils/Unix/verinc
 	archutils/Unix/verinc `svnversion`
@@ -37,8 +37,8 @@ verstub.cpp:
 $(srcdir)/libresample/libresample.a:
 	cd $(srcdir)/libresample && autoconf && sh ./configure && make
 
-$(srcdir)/crypto561/libcryptopp.a:
-	cd $(srcdir)/crypto561 && make -f GNUmakefile
+$(srcdir)/crypto565/libcryptopp.a:
+	cd $(srcdir)/crypto565 && make -f GNUmakefile
 
 Screens = \
 Screen.cpp Screen.h \
@@ -406,23 +406,23 @@ crypto/CryptPrime.cpp crypto/CryptPrime.h crypto/CryptRSA.cpp crypto/CryptRSA.h 
 crypto/CryptRand.cpp crypto/CryptRand.h crypto/CryptSH512.cpp crypto/CryptSH512.h \
 crypto/CryptSHA.cpp crypto/CryptSHA.h
 
-#crypto561/cpu.cpp crypto561/cpu.h \
-#crypto561/secblock.h crypto561/integer.cpp crypto561/integer.h \
-#crypto561/simple.cpp crypto561/simple.h \
-#crypto561/algparam.cpp crypto561/algparam.h \
-#crypto561/misc.cpp crypto561/misc.h \
-#crypto561/algebra.cpp crypto561/algebra.h \
-#crypto561/filters.cpp crypto561/filters.h \
-#crypto561/pkcspad.cpp crypto561/pkcspad.h \
-#crypto561/cryptlib.cpp crypto561/cryptlib.h \
-#crypto561/nbtheory.cpp crypto561/nbtheory.h \
-#crypto561/sha.cpp crypto561/sha.h \
-#crypto561/pssr.cpp crypto561/pssr.h \
-#crypto561/pubkey.cpp crypto561/pubkey.h \
-#crypto561/rsa.cpp crypto561/rsa.h \
-#crypto561/osrng.cpp crypto561/osrng.h \
-#crypto561/queue.cpp crypto561/queue.h \
-#crypto561/asn.cpp crypto561/asn.h
+#crypto565/cpu.cpp crypto565/cpu.h \
+#crypto565/secblock.h crypto565/integer.cpp crypto565/integer.h \
+#crypto565/simple.cpp crypto565/simple.h \
+#crypto565/algparam.cpp crypto565/algparam.h \
+#crypto565/misc.cpp crypto565/misc.h \
+#crypto565/algebra.cpp crypto565/algebra.h \
+#crypto565/filters.cpp crypto565/filters.h \
+#crypto565/pkcspad.cpp crypto565/pkcspad.h \
+#crypto565/cryptlib.cpp crypto565/cryptlib.h \
+#crypto565/nbtheory.cpp crypto565/nbtheory.h \
+#crypto565/sha.cpp crypto565/sha.h \
+#crypto565/pssr.cpp crypto565/pssr.h \
+#crypto565/pubkey.cpp crypto565/pubkey.h \
+#crypto565/rsa.cpp crypto565/rsa.h \
+#crypto565/osrng.cpp crypto565/osrng.h \
+#crypto565/queue.cpp crypto565/queue.h \
+#crypto565/asn.cpp crypto565/asn.h
 
 cryptopp = \
 CryptHelpers.cpp CryptHelpers.h
@@ -448,7 +448,7 @@ main_LDADD = \
 		  $(SDL_LIBS) \
 		  $(XLIBS) \
 		  $(srcdir)/libresample/libresample.a \
-		  $(srcdir)/crypto561/libcryptopp.a
+		  $(srcdir)/crypto565/libcryptopp.a
 
 nodist_openitg_SOURCES = verstub.cpp
 openitg_SOURCES = $(main_SOURCES)
@@ -514,7 +514,7 @@ test_file_errors_SOURCES = \
 		tests/test_file_errors.cpp \
 		MsdFile.cpp MsdFile.h \
 		XmlFile.cpp XmlFile.h \
-		$(srcdir)/crypto561/libcryptopp.a \
+		$(srcdir)/crypto565/libcryptopp.a \
 		CryptManager.cpp CryptManager.h $(cryptopp) $(crypto)
 
 TESTS += test_timing_data
