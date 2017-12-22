@@ -10,6 +10,16 @@ const short MK3_OUTPUT_PORT_2 = 0x2A2;
 
 #ifdef LINUX
 #include <sys/io.h>
+
+#ifdef __arm__
+#define inb_p(addr)	inb(addr)
+#define inw_p(addr)	inw(addr)
+#define inl_p(addr)	inl(addr)
+#define outb_p(x, addr)	outb((x), (addr))
+#define outw_p(x, addr)	outw((x), (addr))
+#define outl_p(x, addr)	outl((x), (addr))
+#endif
+
 namespace MK3
 {
 	inline void Write( uint32_t iData )
