@@ -9,6 +9,8 @@
 Makefile
 a.out
 aclocal.m4
+autoconf/compile
+autoconf/test-driver
 autom4te.cache/
 confdefs.h
 config.log
