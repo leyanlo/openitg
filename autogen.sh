@@ -39,29 +39,20 @@ DIE=0
   DIE=1
 }
 
-# Try automake-1.9, 1.8, and 1.7.
-# HACK: automake 1.7/1.8 choke without a space after -I. Override here.
-if automake-1.9 --version > /dev/null 2>&1; then
-        ACLOCAL=aclocal-1.9
-        AUTOMAKE=automake-1.9
-elif automake-1.8 --version > /dev/null 2>&1; then
-        ACLOCAL=aclocal-1.8
-        AUTOMAKE=automake-1.8
-		ACLOCAL_OPTIONS="-I autoconf/m4/"
-elif automake-1.7 --version > /dev/null 2>&1; then
-        ACLOCAL=aclocal-1.7
-        AUTOMAKE=automake-1.7
-else
-        ACLOCAL_OPTIONS='-Iautoconf/m4/'
-fi
-
 # If none of those were found, check if "automake" exists, and check the version.
 if test -z "$AUTOMAKE" && automake --version > /dev/null 2>&1; then
         version=`automake --version 2>/dev/null|head -1|sed -e 's/.* \([0-9]\+\.[0-9]\+\).*$/\1/'`
 
         IFS=.
         set $version
-        if test -z "$version"; then
+        if test $1 -eq 1 -a $2 -ge 7; then
+                ACLOCAL=aclocal-$1.$2
+                AUTOMAKE=automake-$1.$2
+                # HACK: only automake 1.7/1.8/1.9 need the space after -I. Override here.
+                if test $2 -gt 9; then
+                        ACLOCAL_OPTIONS='-Iautoconf/m4/'
+                fi
+        elif test -z "$version"; then
                 echo "\`automake' appears to be installed, but the version string could not"
                 echo "be parsed.  Proceeding anyway ..."
         elif test $1 -lt 1 -o $2 -lt 7; then
